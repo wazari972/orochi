@@ -217,7 +217,7 @@ class MPlayer(object):
         with a dummy instance that raises a :class:`RuntimeError` on any method
         call."""
 
-        if isinstance(self.p, DeadMPlayer):
+        if hasattr(self, 'p') and isinstance(self.p, DeadMPlayer):
             # self.terminate may be call explicitely *and* implicitely,
             # through self.__del__.
             return
